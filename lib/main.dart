@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food/pages/homePage.dart';
-
+import 'package:food/pages/landingPage.dart';
 void main(){
   runApp(const MyApp());
 }
@@ -16,7 +16,11 @@ class MyApp extends StatelessWidget{
     MaterialApp(
       title: "Food App",
       debugShowCheckedModeBanner: false,
-      home: const HomePage(),
+      initialRoute: "/",
+      routes: {
+        "/": (context)=>HomePage(),
+        "/landingPage": (context)=> LandingPage()
+      },
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),

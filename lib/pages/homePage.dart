@@ -73,7 +73,9 @@ class HomePageState extends State<HomePage>{
                     ),
                   ),
                   GestureDetector(
-                    onTap: ()=>debugPrint("tapped"),
+                    onTap: (){
+                      Navigator.pushNamed(context,"/landingPage");
+                    },
                     child: Container(
                         alignment: Alignment.center,
                         width: 160,
