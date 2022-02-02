@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food/pages/homePage.dart';
 import 'package:food/pages/landingPage.dart';
+import 'package:food/pages/description.dart';
 void main(){
   runApp(const MyApp());
 }
@@ -19,7 +20,8 @@ class MyApp extends StatelessWidget{
       initialRoute: "/",
       routes: {
         "/": (context)=>HomePage(),
-        "/landingPage": (context)=> LandingPage()
+        "/landingPage": (context)=> LandingPage(),
+        "/landingPage/descriptionPage":(context)=>DescriptionPage()
       },
       theme: ThemeData(
         primarySwatch: Colors.red,

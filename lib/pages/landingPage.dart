@@ -1,3 +1,4 @@
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -226,10 +227,16 @@ void _onItemTapped(int index){
                   child: ListView(
                     scrollDirection: Axis.horizontal,
                     children: [
-                      PopularScroll(),
-                      PopularScroll(),
-                      PopularScroll(),
-                      PopularScroll(),
+                      GestureDetector(
+                        onTap:(){
+                          Navigator.pushNamed(context, "/landingPage/descriptionPage");
+                        },
+                        child: PopularScroll("lib/assets/images/pizza.png","Pizza","Cheesy pizza in town","9.99"),
+                      ),
+                      PopularScroll("lib/assets/images/normalBurgar.png","Burger ","The most decorated burger one can find in town","7.99"),
+                      PopularScroll("lib/assets/images/rice.jpg","Rice","The rice that you will eat and ask for more","4.99"),
+                      PopularScroll("lib/assets/images/shawama.jpg","Shawarma","The sexiest Shawarma alive","4.99"),
+                      PopularScroll("lib/assets/images/pasta.png","Pasta","The italiano standard pasta at your doorsteps","5.99"),
                     ],
                   )
               )
@@ -273,53 +280,60 @@ void _onItemTapped(int index){
   );
 }
 
-Widget PopularScroll(){
+Widget PopularScroll(String pic,String name,String description, String price){
   return Container(
-    margin: EdgeInsets.only(right: 10),
-    height:100,
-    width: 150,
-    child: Card(
-      elevation: 3,
-      shadowColor: Colors.grey.shade100,
-      child: Column(
-          children: [
-            Container(
-              height: 50,
-              width: 50,
-              color: Colors.grey,
-            ),
-            SizedBox(height: 10,),
-
-            Text("Beef Burger",style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 15,
-            ),),
-            SizedBox(height: 20,),
-
-            Text("Cheesy Mozarella", style: TextStyle(
-                fontSize: 12,
-                color: Colors.grey
-            ),),
-
-            SizedBox(height: 30,),
-
-            RichText(text: TextSpan(
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                    color: Colors.black
+      margin: EdgeInsets.only(right: 10),
+      height:100,
+      width: 150,
+      child: Card(
+        elevation: 3,
+        shadowColor: Colors.grey.shade100,
+        child: Column(
+            children: [
+              Container(
+                height: 50,
+                width: 50,
+                decoration: BoxDecoration(
+                    color: Colors.grey,
+                    image: DecorationImage(
+                        image: AssetImage("$pic"),
+                        fit: BoxFit.cover
+                    )
                 ),
-                children: [
-                  TextSpan(text:"\$",style: TextStyle(
-                    color: Colors.red,
-                    fontSize: 16,
-                  )),
-                  TextSpan(text:"6.95")
-                ]
-            ))
-          ]
+              ),
+              SizedBox(height: 10,),
 
+              Text("$name",style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 15,
+              ),),
+              SizedBox(height: 20,),
+
+              Text("$description",textAlign: TextAlign.center, style: TextStyle(
+                  fontSize: 12,
+                  color: Colors.grey
+              ),),
+
+              SizedBox(height: 30,),
+
+              RichText(text: TextSpan(
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      color: Colors.black
+                  ),
+                  children: [
+                    TextSpan(text:"\$",style: TextStyle(
+                      color: Colors.red,
+                      fontSize: 16,
+                    )),
+                    TextSpan(text:"$price")
+                  ]
+              ))
+            ]
+
+        ),
       ),
-    ),
-  );
+    );
+
 }
