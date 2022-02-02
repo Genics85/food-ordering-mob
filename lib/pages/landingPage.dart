@@ -94,8 +94,7 @@ void _onItemTapped(int index){
                     ),
                   ),
                   CircleAvatar(
-                    child: Text("BG"),
-
+                    backgroundImage: AssetImage("lib/assets/images/sonny.png"),
                   )
                 ],
               ),
@@ -106,7 +105,7 @@ void _onItemTapped(int index){
               Container(
                 height: 150,
                 decoration: BoxDecoration(
-                  color: Colors.amber,
+                  color: Colors.amber.shade100,
                   borderRadius: BorderRadius.circular(20),
 
                 ),
@@ -155,12 +154,13 @@ void _onItemTapped(int index){
                       ],
                     ),
                     Container(
+                      margin: EdgeInsets.only(left: 30),
                       height: 100,
                       width:150,
                       decoration: BoxDecoration(
                           color: Colors.grey,
                           image: DecorationImage(
-                              image: AssetImage("assets/images/bike.png"),
+                              image: AssetImage("lib/assets/images/bike.png"),
                               fit: BoxFit.cover
                           )
                       ),
@@ -191,10 +191,12 @@ void _onItemTapped(int index){
 
                   scrollDirection: Axis.horizontal,
                   children: [
-                    CategoryScroll("Pizza","",true),
-                    CategoryScroll("Burger","",false),
-                    CategoryScroll("Pasta","",false),
-                    CategoryScroll("Rice","",false),
+                    CategoryScroll("Pizza","lib/assets/images/pizza.png",true),
+                    CategoryScroll("Burger","lib/assets/images/normalBurgar.png",false),
+                    CategoryScroll("Pasta","lib/assets/images/pasta.png",false),
+                    CategoryScroll("Rice","lib/assets/images/rice.jpg",false),
+                    CategoryScroll("Shaw.","lib/assets/images/shawama.jpg",false),
+                    CategoryScroll("Chick","lib/assets/images/chicken.jpg",false),
                   ],
                 ),
               ),
@@ -256,11 +258,7 @@ void _onItemTapped(int index){
               height:30,
               child:
               CircleAvatar(
-                backgroundColor: Colors.white,
-                backgroundImage: NetworkImage(pic),
-                child: Text("PZ",style: TextStyle(
-                    fontSize: 14
-                ),),
+                backgroundImage: AssetImage(pic),
               )
           ),
 
