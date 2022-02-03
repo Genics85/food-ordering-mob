@@ -268,13 +268,18 @@ class _DescriptionPageState extends State<DescriptionPage> {
               ]
             ),
           ),
-          // Container(
-          //   decoration: BoxDecoration(
-          //     image: DecorationImage(
-          //       image: AssetImage("lib/assets/images/burgarSplash.png")
-          //     )
-          //   ),
-          // )
+          Container(
+            margin:EdgeInsets.only(top:MediaQuery.of(context).size.height*0.13,left:MediaQuery.of(context).size.width*0.5-125),
+            width: 250,
+            height: 250,
+            alignment: Alignment.topCenter,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("lib/assets/images/burgarSized.png"),
+                fit: BoxFit.cover
+              )
+            ),
+          )
         ],
       ),
     ));
